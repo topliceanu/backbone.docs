@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+        <title>Backbone Forms</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <script src="lib/jquery/jquery.js"></script>
+        <script src="lib/jquery.mobile/jquery.mobile.js"></script>
+        <script src="data/data.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+
+        <!-- main page -->
+        <div data-role="page" id="logo" data-title="Backbone Logo">
+            <div data-role="content">	
+                <div class="ui-grid-solo">
+                    <img src="images/backbone.logo.png"/>
+                    <h2>Backbone.Docs</h2>		
+                    <a href="#menu" data-role="button" data-theme="b">START</a>
+                    <a href="#search" data-role="button" data-theme="b">FIND</a>
+                </div>
+            </div>
+        </div>
+        <!-- end main page -->
+
+        <!-- search page -->
+        <div data-role="page" id="menu" data-inset="true" data-title="Main Menu" data-add-back-btn="true">
+            <div data-role="header">
+                <a data-rel="back" data-icon="back">Back</a>
+                <h1>Menu</h1>
+                <a href="#search" data-icon="search">Find</a>
+            </div>
+            <div data-role="content">	
+                <ul data-role="listview" data-index="true">
+                </ul>
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#menu" data-icon="home">Home</a></li>
+                        <li><a href="#search" data-icon="search">Search</a></li>
+                        <li><a href="#about" data-icon="info">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end search page -->
+
+        <!-- search page -->
+        <div data-role="page" id="docs" data-title="Documentation" data-add-back-btn="true">
+            <div data-role="header">
+                <a data-rel="back" data-icon="back">Back</a>
+                <h1>Docs</h1>
+                <a href="#search" data-icon="search">Find</a>
+            </div>
+            <div data-role="content">	
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#menu" data-icon="home">Home</a></li>
+                        <li><a href="#search" data-icon="search">Search</a></li>
+                        <li><a href="#about" data-icon="info">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end search page -->
+
+        <!-- search page -->
+        <div data-role="page" id="search" data-title="Search" data-add-back-btn="true">
+            <div data-role="header">
+                <a data-rel="back" data-icon="back">Back</a>
+                <h1>Search</h1>
+                <a href="#search" data-icon="search">Find</a>
+            </div>
+            <div data-role="content">	
+                <ul data-role="listview" data-index="true">
+                </ul>
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#menu" data-icon="home">Home</a></li>
+                        <li><a href="#search" data-icon="search">Search</a></li>
+                        <li><a href="#about" data-icon="info">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end search page -->
+
+        <!-- about page -->
+        <div data-role="page" id="search" data-title="Search" data-add-back-btn="true">
+            <div data-role="header">
+                <a data-rel="back" data-icon="back">Back</a>
+                <h1>About</h1>
+                <a href="#search" data-icon="search">Find</a>
+            </div>
+            <div data-role="content">	
+                <p> This app is built by <a href="http://about.me/alexandru.topliceanu">alexandru topliceanu</a></p>
+                <p> It formats the documentation from <a href="http://backbonejs.org">backbonejs.org</a> but optimied for mobile</p>
+                <p> It is built using <a href="jquerymobile.org">jQuery Mobile</a> as a learning exercise</p>
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#menu" data-icon="home">Home</a></li>
+                        <li><a href="#search" data-icon="search">Search</a></li>
+                        <li><a href="#about" data-icon="info">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end about page -->
+
+    </body>
+</html>

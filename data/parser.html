@@ -1,0 +1,86 @@
+<script src="../lib/jquery/jquery.js"></script>
+<script>
+    /**
+     * this script parses backbonejs.org and extracts the documentation into a json
+     * just run http://localhost/data/parser.html and look in your console
+     */
+
+    // jquery plugin to extract an xml node as a string
+    (function ($) {
+        $stash = $('<div/>');
+        $.fn.outerHtml = function (elements) {
+            var outerHtml = '';
+            this.each( function (i, el) {
+                $stash.append($(this).clone());
+                outerHtml += $stash.html();
+                $stash.html('');
+            });
+            return outerHtml;
+        };
+    })(jQuery);
+
+
+    // source of data, to be loaded with xhr
+    var datasource = '../data/data.xml', 
+
+        // fetches data from the bage given a hash anchor
+        getContent = function (hash, $data) {
+            if (hash === '#') return;
+            var $header = $data.find(hash),
+                $body = $header.add($header.nextUntil('[id]'));
+            return {
+                'header': hash.substring(1).replace('-', '.'),
+                'body': $body.outerHtml()
+            };
+        },
+
+        // parses the main document
+        parse = function ($data) {
+            var doc = {};
+            $data.find('a.toc_title').each( function (i, title) {
+                var $title = $(title),
+                    str = $.trim( $title.text() ),
+                    hash = $title.attr('href'),
+                    content = getContent(hash, $data);
+                doc[hash] = {
+                    'title': str,
+                    'hash': hash,
+                    'content': content,
+                    'sections': {}
+                };
+                $title.next('ul.toc_section').find('li>a').each( function (i, section) {
+                    var $section = $(section),
+                        str = $.trim( $section.text() ),
+                        sectionHash = $section.attr('href'),
+                        content = getContent(sectionHash, $data); 
+                    doc[hash].sections[sectionHash] = {
+                        'title': str,
+                        'hash': sectionHash,
+                        'content': content
+                    };
+                });
+            }); 
+            return doc;
+        },
+
+        // execute when the raw document is extracted
+        onDataLoaded = function (data) {
+            $data = $(data);
+            doc = parse($data);
+            console.log(JSON.stringify(doc));
+        },
+
+        // prints errors on loading/parsing data payload
+        onFailLoad = function () {
+            console.log (arguments);
+        };
+
+    // fetch data
+    $.ajax({
+        url: datasource,
+        cache: true,
+        dataType: 'xml'
+    })
+    .done (onDataLoaded)
+    .fail (onFailLoad);
+</script>
