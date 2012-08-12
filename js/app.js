@@ -5,7 +5,8 @@
         var $logoPage = $('#logo'),
             $menuPage = $('#menu'),
             $searchPage = $('#search'),
-            $docsPage = $('#docs');
+            $docsPage = $('#docs'),
+            $aboutPage = $('#about');
 
         var renderPage = function ($page, contents, header) {
             $page.find('[data-role=header] h1').html(header);
@@ -42,6 +43,10 @@
             // logo page
             if (url.hash === '') {
                 $page = $logoPage;
+            }
+            else if (url.hash === '#about') {
+                $page = $aboutPage;
+                $page.page();
             }
             // search page 
             else if (url.hash === '#search') {
