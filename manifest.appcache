@@ -5,28 +5,26 @@ CACHE MANIFEST
 CACHE:
 
 #images
-http://localhost:3000/images/backbone.logo.png
+images/backbone.logo.png
 
 #internal HTML documents
-http://localhost:3000/
+
 
 #style sheets
 data:text/css,
-http://localhost:3000/css/app.css
-http://localhost:3000/lib/jquery.mobile/jquery.mobile.css
+css/app.css
+lib/jquery.mobile/jquery.mobile.css
 
 #style sheet images
-http://localhost:3000/lib/jquery.mobile/images/ajax-loader.gif
-http://localhost:3000/lib/jquery.mobile/images/icons-18-black.png
-http://localhost:3000/lib/jquery.mobile/images/icons-18-white.png
+lib/jquery.mobile/images/ajax-loader.gif
+lib/jquery.mobile/images/icons-18-black.png
+lib/jquery.mobile/images/icons-18-white.png
 
 #javascript files
-http://localhost:3000/lib/jquery/jquery.js
-http://localhost:3000/lib/jquery.mobile/jquery.mobile.js
-http://localhost:3000/data/data.js
-http://localhost:3000/js/app.js
-http://manifesto.ericdelabar.com/manifesto.js?x=0.45438282075338066
-http://manifesto.ericdelabar.com/manifesto.js?x=0.9848170627374202
+lib/jquery/jquery.js
+lib/jquery.mobile/jquery.mobile.js
+data/data.js
+js/app.js
 
 NETWORK:
 *
